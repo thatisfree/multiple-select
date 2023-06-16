@@ -3677,6 +3677,9 @@
 
         // hide select element
         this.$el.hide();
+        
+        // tabindex -1 select element
+        this.$el.attr("tabindex", -1);
 
         // label element
         this.$label = this.$el.closest('label');
@@ -3701,7 +3704,7 @@
         var tabIndex = '';
         if (this.tabIndex !== null) {
           this.$el.attr('tabindex', -1);
-          tabIndex = this.tabIndex && "tabindex=\"".concat(this.tabIndex, "\"");
+          tabIndex = this.tabIndex && "tabindex=\"".concat(0, "\"");
         }
         this.$choice = $$e("\n      <button type=\"button\" class=\"ms-choice\"".concat(tabIndex, ">\n      <span class=\"placeholder\">").concat(this.options.placeholder, "</span>\n      ").concat(this.options.showClear ? '<div class="icon-close"></div>' : '', "\n      <div class=\"icon-caret\"></div>\n      </button>\n    "));
 
