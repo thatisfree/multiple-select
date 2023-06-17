@@ -2142,6 +2142,7 @@
     displayTitle: false,
     displayDelimiter: ', ',
     minimumCountSelected: 3,
+    shorter: null,
     ellipsis: false,
     isOpen: false,
     keepOpen: false,
@@ -4231,6 +4232,11 @@
         var $span = this.$choice.find('>span');
         var sl = valueSelects.length;
         var html = '';
+        if (this.options.shorter != null) {
+          textSelects = textSelects.map(function(text) {
+            return text.slice(0, this.options.shorter);
+          }.bind(this));
+        }
         if (sl === 0) {
           $span.addClass('placeholder').html(this.options.placeholder);
         } else if (sl < this.options.minimumCountSelected) {
